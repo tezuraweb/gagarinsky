@@ -1,0 +1,69 @@
+{% set navs = [
+    {
+        link: '/search',
+        title: 'Помещения'
+    },
+    {
+        link: '/about',
+        title: 'О компании'
+    },
+    {
+        link: '/lightindustrial',
+        title: 'Light Industrial'
+    },
+    {
+        link: '#partner-locations',
+        title: 'Объекты партнеров'
+    }
+] %}
+
+{% set contacts = {
+    phone: {
+        link: 'tel:+73412794100',
+        title: '+7 (3412) 79-41-00'
+    },
+    socials: [
+        {
+            link: 'https://t.me/+79120557755',
+            type: 'telegram',
+            icon: 'telegramIcon',
+            title: 'Telegram'
+        },
+        {
+            link: 'https://wa.me/79120203331',
+            type: 'whatsapp',
+            icon: 'whatsappIcon',
+            title: 'WhatsApp'
+        }
+    ],
+    channels: [
+        {
+            link: 'https://t.me/depo_arenda',
+            type: 'telegram',
+            icon: 'telegramIcon',
+            title: 'Наш канал'
+        }
+    ],
+    email: {
+        link: 'mailto:gagarinskiy1@mail.ru',
+        title: 'gagarinskiy1@mail.ru'
+    }
+} %}
+
+{% extends "layouts/body.njk" %}
+
+{% block bodyContent %}
+
+    <header class="page__header">
+        {% include "includes/header.njk" %}
+    </header>
+
+    <main class="page__main">
+        {% block mainContent %}{% endblock %}
+    </main>
+
+    <footer class="page__footer">
+        {% include "includes/footer.njk" %}
+    </footer>
+
+{% endblock %}

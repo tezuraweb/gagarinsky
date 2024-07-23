@@ -1,0 +1,87 @@
+{% set pageTitle = 'Торгово-складской комплекс Гагаринский' %}
+{% set pageDescription = 'О компании Гагаринский' %}
+
+{% set advantages = [
+    {
+        id: 'loc',
+        title: 'Удобная локация в центральной части города',
+        iconId: 'locIcon'
+    },
+    {
+        id: 'transport',
+        title: 'Отличная транспортная развязка',
+        iconId: 'transportIcon'
+    },
+    {
+        id: 'bus',
+        title: 'Остановки общественного транспорта поблизости',
+        iconId: 'busIcon'
+    },
+    {
+        id: 'parking',
+        title: 'Благоустроенная территория с парковкой и доступом 24/7',
+        iconId: 'parkingIcon'
+    }
+] %}
+
+{% extends "layouts/default.njk" %}
+
+{% block mainContent %}
+
+    <section class="section about__section about--black" id="about-block">
+        <div class="container">
+            <h1 class="about__title about__title--main">Торгово-складской комплекс Гагаринский</h1>
+            <ul class="about__info">
+                <li class="about__info--list"><span class="about__info--number">20000</span><span class="about__info--text">м² площадей</span></li>
+                <li class="about__info--list"><span class="about__info--number">3000</span><span class="about__info--text about__info--lg">посетителей каждый день</span></li>
+                <li class="about__info--list"><span class="about__info--number">70</span><span class="about__info--text about__info--md">резидентов</span></li>
+            </ul>
+            <div class="about__info--address">Ижевск, Гагарина, 17</div>
+        </div>
+    </section>
+
+    <section class="section about__section--black">
+        <div class="container">
+            <h2 class="about__title about__advantages--title">Превосходная инфраструктура</h2>
+        </div>
+            <ul class="about__advantages flex flex--sb">
+                {% for item in advantages %}
+                    <li class="about__advantages--item">
+                        <div class="about__advantages--icon">
+                            {% set includeIcon = item.iconId %}
+                            {% include "includes/svg.njk" %}
+                        </div>
+                        <p class="about__advantages--subtitle about__advantages--{{ item.id }}">{{ item.title }}</p>
+                        <p class="about__advantages--text">{{ item.text }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="/search" class="button button--large about__advantages--button">Подобрать помещение</a>
+    </section>
+
+    <section class="section about__section">
+        <div class="container">
+            <h2 class="about--black about__title about__manager--title">Управляющий торгово-складского комплекса Гагаринский</h2>
+            <div data-react-component="manager"></div>
+        </div>
+    </section>
+
+    <section class="section about__section">
+        <div class="container">
+            <h2 class="about--black about__title about__manager--title">Наши арендаторы</h2>
+            <div data-react-component="tenants"></div>
+        </div>
+    </section>
+
+    <section class="section section__shadow-2" id="contact-form">
+        <div class="container">
+            <h2>Поможем подобрать помещение</h2>
+
+            <div class="contact__content">
+                <div data-react-component="contactForm"></div>
+            </div>
+            <p class="about__subtitle about__subtitle--form">* доступно строительство под заказ</p>
+        </div>
+    </section>
+
+{% endblock %}
