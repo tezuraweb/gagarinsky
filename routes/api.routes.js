@@ -372,13 +372,14 @@ router
         const { name, email, phone, url } = pick(req.body, ['name', 'email', 'phone', 'url']);
 
         try {
-            const response = await axios.post(`${bitrixConfig.url}/crm.lead.add`, {
+            const response = await axios.post(`${bitrixConfig.url}/crm.lead.add.json`, {
                 fields: {
                     TITLE: `Заявка от ${name}`,
                     NAME: name,
                     EMAIL: [{ VALUE: email }],
                     PHONE: [{ VALUE: phone }],
-                    WEB: [{ VALUE: url, VALUE_TYPE: "Депо" }],
+                    WEB: [{ VALUE: url, VALUE_TYPE: "Гагаринский" }],
+                    ASSIGNED_BY_ID: 12,
                 }
             });
             res.json({ success: true, data: response.data });
